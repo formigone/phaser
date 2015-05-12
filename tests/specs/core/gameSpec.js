@@ -14,5 +14,13 @@ describe('core game object', function(){
         game.step();
 
         expect(game.stepCount).toBe(1);
-    })
+    });
+
+    it('destroys game states on destroy', function(){
+        var game = new Phaser.Game();
+        expect(game.state.game.id).toBeDefined();
+
+        game.state.destroy();
+        expect(game.state.game).toBeNull();
+    });
 });

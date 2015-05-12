@@ -21,8 +21,6 @@ module.exports = function (grunt) {
 
     grunt.loadTasks('tasks');
 
-    grunt.loadNpmTasks('grunt-karma');
-
     grunt.registerTask('default', ['build']);
 
     grunt.registerTask('docs', ['clean:docs', 'pixidoc', 'jsdoc:html', 'replace:docs', 'clean:out']);
@@ -222,7 +220,7 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('test', 'Run all unit tests using Karma', function() {
+    grunt.registerTask('mini-build', 'Quick build to make library available to Karma', function() {
 
         grunt.option('exclude', 'ninja,creature');
         grunt.option('filename', 'phaser');
@@ -232,15 +230,6 @@ module.exports = function (grunt) {
         grunt.option('nomin', true);
 
         grunt.task.run('custom');
-        grunt.config.set('karma', {
-            dev: {
-                configFile: 'tests/karma.conf.js',
-                background: true,
-                singleRun: true
-            }
-        });
-
-        grunt.task.run('karma:dev:run');
     });
 
     grunt.registerTask('full', 'Phaser complete', function() {

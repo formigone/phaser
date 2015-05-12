@@ -46,6 +46,7 @@
     "jsdoc": "~3.3.0-alpha10",
     "grunt-git": "^0.3.3",
     "typescript": "^1.4.1",
-    "karma": "~0.12.31"
+    "karma": "~0.12.31",
+    "karma-typescript-preprocessor": "0.0.19"
   }
 }

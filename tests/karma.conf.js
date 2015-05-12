@@ -15,19 +15,43 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'tests/stubs.js',
+            'src/pixi/Pixi.js',
+            'src/*.js',
+            'src/utils/Utils.js',
+            'src/geom/*.js',
+            'src/gameobjects/components/Component.js',
+            'src/gameobjects/components/*.js',
+            'src/gameobjects/Image.js',
+            'src/animation/creature/gl-matrix.js',
+            'src/core/Group.js',
             'src/**/*.js',
+
             'tests/specs/**/*.js'
         ],
 
 
         // list of files to exclude
         exclude: [
+            'src/Intro.js',
+            'src/Outro.js',
+            'src/pixi/Intro.js',
+            'src/pixi/Outro.js',
+            'src/PixiDefaults.js',
         ],
 
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+        },
+
+        typescriptPreprocessor: {
+            typings: [
+                'typescript/pixi.d.ts',
+                'typescript/phaser.d.ts',
+                'typescript/p2.d.ts'
+            ]
         },
 
 

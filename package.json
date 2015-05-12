@@ -47,6 +47,7 @@
     "grunt-git": "^0.3.3",
     "typescript": "^1.4.1",
     "karma": "~0.12.31",
-    "karma-typescript-preprocessor": "0.0.19"
+    "karma-typescript-preprocessor": "0.0.19",
+    "grunt-karma": "~0.10.1"
   }
 }

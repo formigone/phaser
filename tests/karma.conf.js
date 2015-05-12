@@ -15,17 +15,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'tests/stubs.js',
-            'src/pixi/Pixi.js',
-            'src/*.js',
-            'src/utils/Utils.js',
-            'src/geom/*.js',
-            'src/gameobjects/components/Component.js',
-            'src/gameobjects/components/*.js',
-            'src/gameobjects/Image.js',
-            'src/animation/creature/gl-matrix.js',
-            'src/core/Group.js',
-            'src/**/*.js',
+            'dist/phaser.js',
 
             'tests/specs/**/*.js'
         ],
@@ -33,11 +23,6 @@ module.exports = function(config) {
 
         // list of files to exclude
         exclude: [
-            'src/Intro.js',
-            'src/Outro.js',
-            'src/pixi/Intro.js',
-            'src/pixi/Outro.js',
-            'src/PixiDefaults.js',
         ],
 
 
@@ -46,15 +31,6 @@ module.exports = function(config) {
         preprocessors: {
         },
 
-        typescriptPreprocessor: {
-            typings: [
-                'typescript/pixi.d.ts',
-                'typescript/phaser.d.ts',
-                'typescript/p2.d.ts'
-            ]
-        },
-
-
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -62,7 +38,7 @@ module.exports = function(config) {
 
 
         // web server port
-        port: 2667,
+        port: 9876,
 
 
         // enable / disable colors in the output (reporters and logs)

@@ -21,6 +21,8 @@ module.exports = function (grunt) {
 
     grunt.loadTasks('tasks');
 
+    grunt.loadNpmTasks('grunt-karma');
+
     grunt.registerTask('default', ['build']);
 
     grunt.registerTask('docs', ['clean:docs', 'pixidoc', 'jsdoc:html', 'replace:docs', 'clean:out']);
@@ -179,7 +181,9 @@ module.exports = function (grunt) {
 
             tasks.push('concat:custom');
 
-            tasks.push('uglify:custom');
+            if (!grunt.option('nomin')) {
+                tasks.push('uglify:custom');
+            }
 
             if (grunt.option('copy'))
             {
@@ -216,6 +220,27 @@ module.exports = function (grunt) {
 
         grunt.task.run('custom');
 
+    });
+
+    grunt.registerTask('test', 'Run all unit tests using Karma', function() {
+
+        grunt.option('exclude', 'ninja,creature');
+        grunt.option('filename', 'phaser');
+        grunt.option('sourcemap', true);
+        grunt.option('copy', false);
+
+        grunt.option('nomin', true);
+
+        grunt.task.run('custom');
+        grunt.config.set('karma', {
+            dev: {
+                configFile: 'tests/karma.conf.js',
+                background: true,
+                singleRun: true
+            }
+        });
+
+        grunt.task.run('karma:dev:run');
     });
 
     grunt.registerTask('full', 'Phaser complete', function() {
